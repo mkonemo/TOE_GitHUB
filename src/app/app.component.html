@@ -9,20 +9,27 @@
 <div>
   <h2>My Heroes</h2>
   <ul class="heroes">
-    <!-- uso un ciclo for per elencare gli elementi dell'array heroes, dichiaro che ogni elemento ciclato si chiamerà pippo (hero). Userò questo nome per richiamarlo in tutti i pezzi del ciclo.  -->
+    <!-- uso un ciclo for per elencare gli elementi dell'array heroes,
+    dichiaro che ogni elemento ciclato si chiamerà pippo (hero).
+    Userò questo nome per richiamarlo in tutti i pezzi del ciclo.  -->
     <li *ngFor= "let pippo of heroes"
-      [class.selected] = "pippo === selectedHero"
-      (click)="onSelect(pippo)"><!-- ciclo l'array e al click seleziono l'elemento pippo (hero), passandolo a component.ts. Inoltre aggiungo la classe selected all'elemento <LI> quando questo viene con quello cliccato e assegnato a selectedHero -->
+        [class.selected] = "pippo === selectedHero"
+        (click)="onSelect(pippo)"><!-- ciclo l'array e al click seleziono l'elemento pippo (hero),
+      passandolo a component.ts. Inoltre aggiungo la classe selected all'elemento <LI>
+      quando questo viene con quello cliccato e assegnato a selectedHero -->
       <span class="badge">{{pippo.id}}</span> {{pippo.name}}
     </li>
   </ul>
 </div>
 
-<div *ngIf="selectedHero"><!-- Verifico se in component.ts esiste un elemento che si chiama selectedHero. Il contenuto di questo div comparirà nel DOM solo se selectedHero esiste, e al suo interno userò tutti i parametri che gli sono stati assegnati nelle funzioni in component.ts. -->
+<div *ngIf="selectedHero"><!-- Verifico se in component.ts esiste un elemento che si chiama selectedHero.
+Il contenuto di questo div comparirà nel DOM solo se selectedHero esiste,
+e al suo interno userò tutti i parametri che gli sono stati assegnati nelle funzioni in component.ts. -->
   <h2>
     {{selectedHero.name}} details!
   </h2>
   <div><label>id: </label>{{selectedHero.id}}</div>
   <div><label>name: </label>{{selectedHero.name}}</div>
-  <div><input [(ngModel)]="selectedHero.name" placeholder="name" /></div><!-- tramite [(ngModel)] collego questo input all'elemento selectedHero dichiarato in component.ts. -->
+  <div><input [(ngModel)]="selectedHero.name" placeholder="name" /></div><!-- tramite [(ngModel)] collego questo input
+  all'elemento selectedHero dichiarato in component.ts. -->
 </div>
